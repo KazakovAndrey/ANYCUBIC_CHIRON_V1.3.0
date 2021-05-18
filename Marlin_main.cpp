@@ -5856,7 +5856,12 @@ inline void gcode_M17() {
   /**
    * M25: Pause SD Print
    */
-  inline void gcode_M25() { card.pauseSDPrint(); }
+  inline void gcode_M25() { card.pauseSDPrint(); 
+				                  /* Kazakov */
+				                  TFTpausingFlag=true;
+				                  NEW_SERIAL_PROTOCOLPGM("J05");//j05 pausing
+                          TFT_SERIAL_ENTER();                                 
+	}
 
   /**
    * M26: Set SD Card file index
